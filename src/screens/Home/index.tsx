@@ -4,11 +4,21 @@ import images from '../../../constants/images';
 import icons from '../../../constants/icons';
 import {mockData} from '../../../constants/data';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {useNavigation} from '@react-navigation/native';
+import {BottomTabParamList} from '../../navigation/type';
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+
+type NavigationProp = BottomTabNavigationProp<BottomTabParamList, 'Home'>;
 
 const Home = () => {
+  const navigation = useNavigation<NavigationProp>();
   return (
-    <SafeAreaView className="flex-1 px-6 bg-white">
-      <ScrollView contentContainerClassName="">
+    <SafeAreaView
+      className="flex-1 px-6 bg-white"
+      edges={['top', 'right', 'left']}>
+      <ScrollView
+        contentContainerClassName="pb-6"
+        showsVerticalScrollIndicator={false}>
         <View className="flex flex-row justify-between items-center">
           <View className="flex flex-row gap-3 items-center">
             <Image source={images.avatar} className="w-14 h-14 rounded-full" />
@@ -18,7 +28,7 @@ const Home = () => {
             </View>
           </View>
           <View className="flex flex-row gap-4">
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Search')}>
               <Image
                 source={icons.search}
                 className="rounded-full object-contain w-8 h-8"
@@ -40,7 +50,9 @@ const Home = () => {
             className="w-32 h-32 rounded-full absolute right-10 top-6"
           />
           <TouchableOpacity className="w-24 h-8 bg-white mt-2 rounded-lg cursor-pointer">
-            <Text className="my-auto mx-auto">Search for</Text>
+            <Text className="my-auto mx-auto text-sm font-bold text-primary">
+              Search for
+            </Text>
           </TouchableOpacity>
         </View>
         <Text className="text-xl font-bold mb-6">Welcome to NXS Care</Text>
@@ -48,13 +60,14 @@ const Home = () => {
           {mockData.map((item, index) => (
             <TouchableOpacity
               key={index}
-              className="bg-[#e8ecf0] h-[90px] w-[47%] px-2 rounded-2xl flex flex-row gap-2 justify-center items-center">
+              className="bg-[#e8ecf0] h-[90px] w-[47%] px-4 rounded-2xl
+              flex flex-row gap-2 items-center justify-center">
               <Image
                 source={item.icon}
                 className="w-10 h-10"
                 tintColor={'#177de2'}
               />
-              <Text className="font-semibold text-lg text-[#177de2] flex-1 flex-wrap">
+              <Text className="font-semibold text-base text-[#177de2] flex-1">
                 {item.label}
               </Text>
             </TouchableOpacity>

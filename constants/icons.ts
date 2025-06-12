@@ -31,8 +31,19 @@ import swim from '../assets/icons/swim.png';
 import wifi from '../assets/icons/wifi.png';
 import location from '../assets/icons/location.png';
 import edit from '../assets/icons/edit.png';
+import booking from '../assets/icons/booking.png';
+import menu from '../assets/icons/menu.png';
+import support from '../assets/icons/support.png';
+import bill from '../assets/icons/bill.png';
+import payment from '../assets/icons/payment.png';
+import history from '../assets/icons/history.png';
 
 export default {
+  history,
+  payment,
+  bill,
+  support,
+  booking,
   google,
   home,
   search,
@@ -66,4 +77,5 @@ export default {
   wifi,
   location,
   edit,
+  menu,
 };

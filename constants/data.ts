@@ -2,11 +2,11 @@ import icons from './icons';
 
 export const mockData = [
   {
-    icon: icons.calendar,
+    icon: icons.booking,
     label: 'Đặt khám',
   },
   {
-    icon: icons.calendar,
+    icon: icons.history,
     label: 'Lịch sử đặt khám',
   },
   {
@@ -14,11 +14,11 @@ export const mockData = [
     label: 'Hồ sơ sức khỏe',
   },
   {
-    icon: icons.chat,
+    icon: icons.history,
     label: 'Lịch sử tiêm chủng',
   },
   {
-    icon: icons.wallet,
+    icon: icons.payment,
     label: 'Thanh toán viện phí, đơn thuốc',
   },
   {
@@ -31,14 +31,14 @@ export const mockData = [
   },
   {
     icon: icons.wallet,
-    label: 'Hóa đơn GTGT',
+    label: 'Hóa đơn  GTGT',
   },
   {
     icon: icons.run,
     label: 'Theo dõi sức khỏe',
   },
   {
-    icon: icons.info,
+    icon: icons.support,
     label: 'Hỗ trợ',
   },
 ];

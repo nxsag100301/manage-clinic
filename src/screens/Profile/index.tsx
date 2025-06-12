@@ -36,7 +36,7 @@ const SettingItems = ({
 const Profile = () => {
   const handleLogout = async () => {};
   return (
-    <SafeAreaView className="h-full bg-white">
+    <SafeAreaView className="h-full bg-white" edges={['top', 'right', 'left']}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerClassName="px-7 pb-32">

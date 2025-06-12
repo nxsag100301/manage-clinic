@@ -4,11 +4,14 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import BottomTab from './src/navigation/BottomTab/BottomTab';
 import Login from './src/screens/Login';
+import {AuthProvider, useAuthContext} from './context/AuthContext';
 
 const Stack = createStackNavigator();
 
 const RootStack = () => {
-  const isAuth = true;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const {user} = useAuthContext();
+  const isAuth = true; // !!user
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {isAuth ? (
@@ -23,7 +26,9 @@ const RootStack = () => {
 const App = (): React.JSX.Element => {
   return (
     <NavigationContainer>
-      <RootStack />
+      <AuthProvider>
+        <RootStack />
+      </AuthProvider>
     </NavigationContainer>
   );
 };
