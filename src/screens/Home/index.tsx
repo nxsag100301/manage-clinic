@@ -7,11 +7,13 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {BottomTabParamList} from '../../navigation/type';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+import {useGetUserInfo} from '../../redux/users/useGetUserInfo';
 
 type NavigationProp = BottomTabNavigationProp<BottomTabParamList, 'Home'>;
 
 const Home = () => {
   const navigation = useNavigation<NavigationProp>();
+  const {user} = useGetUserInfo();
   return (
     <SafeAreaView
       className="flex-1 px-6 bg-white"
@@ -24,7 +26,7 @@ const Home = () => {
             <Image source={images.avatar} className="w-14 h-14 rounded-full" />
             <View>
               <Text>Welcome back</Text>
-              <Text className="font-bold text-xl leading-6">Xuan Sang</Text>
+              <Text className="font-bold text-xl leading-6">{user.name}</Text>
             </View>
           </View>
           <View className="flex flex-row gap-4">
@@ -64,7 +66,7 @@ const Home = () => {
               flex flex-row gap-2 items-center justify-center">
               <Image
                 source={item.icon}
-                className="w-10 h-10"
+                className="w-10 h-10 m-2"
                 tintColor={'#177de2'}
               />
               <Text className="font-semibold text-base text-[#177de2] flex-1">

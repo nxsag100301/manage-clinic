@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '../../screens/Home';
 import Profile from '../../screens/Profile';
@@ -7,6 +6,7 @@ import {Image} from 'react-native';
 import icons from '../../../constants/icons';
 import Search from '../../screens/Search/Search';
 import {BottomTabParamList} from '../type';
+import {useCallback} from 'react';
 
 const TabBarIcon = ({icon, color}: {icon: any; color: string}) => (
   <Image source={icon} tintColor={color} className="w-9 h-9" />
@@ -14,6 +14,34 @@ const TabBarIcon = ({icon, color}: {icon: any; color: string}) => (
 
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 const BottomTab = () => {
+  const renderHomeIcon = useCallback(
+    ({color}: {color: string}) => (
+      <TabBarIcon icon={icons.home} color={color} />
+    ),
+    [],
+  );
+
+  const renderSearchIcon = useCallback(
+    ({color}: {color: string}) => (
+      <TabBarIcon icon={icons.search} color={color} />
+    ),
+    [],
+  );
+
+  const renderProfileIcon = useCallback(
+    ({color}: {color: string}) => (
+      <TabBarIcon icon={icons.person} color={color} />
+    ),
+    [],
+  );
+
+  const renderMenuIcon = useCallback(
+    ({color}: {color: string}) => (
+      <TabBarIcon icon={icons.person} color={color} />
+    ),
+    [],
+  );
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -25,36 +53,28 @@ const BottomTab = () => {
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({color}) => (
-            <TabBarIcon icon={icons.home} color={color} />
-          ),
+          tabBarIcon: renderHomeIcon,
         }}
       />
       <Tab.Screen
         name="Search"
         component={Search}
         options={{
-          tabBarIcon: ({color}) => (
-            <TabBarIcon icon={icons.search} color={color} />
-          ),
+          tabBarIcon: renderSearchIcon,
         }}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
-          tabBarIcon: ({color}) => (
-            <TabBarIcon icon={icons.person} color={color} />
-          ),
+          tabBarIcon: renderProfileIcon,
         }}
       />
       <Tab.Screen
         name="Menu"
         component={Menu}
         options={{
-          tabBarIcon: ({color}) => (
-            <TabBarIcon icon={icons.menu} color={color} />
-          ),
+          tabBarIcon: renderMenuIcon,
         }}
       />
     </Tab.Navigator>

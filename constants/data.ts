@@ -1,4 +1,7 @@
 import icons from './icons';
+// const Pdf = require('../assets/pdf/mockPdf.pdf');
+
+// export const mockPdf = Pdf;
 
 export const mockData = [
   {
@@ -31,7 +34,7 @@ export const mockData = [
   },
   {
     icon: icons.wallet,
-    label: 'Hóa đơn  GTGT',
+    label: 'Hóa đơn GTGT',
   },
   {
     icon: icons.run,
