@@ -5,7 +5,7 @@ import Pdf from 'react-native-pdf';
 import CustomHeader from '../../components/CustomHeader/CustomHeader';
 
 const ViewPdf = () => {
-  const source = {uri: 'bundle-assets://pdf/mockpdf2.pdf'};
+  const source = {uri: 'bundle-assets://pdf/mockpdf.pdf'};
   return (
     <SafeAreaView
       edges={['top', 'right', 'left']}
