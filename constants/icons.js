@@ -37,8 +37,14 @@ import support from '../assets/icons/support.png';
 import bill from '../assets/icons/bill.png';
 import payment from '../assets/icons/payment.png';
 import history from '../assets/icons/history.png';
+import back from '../assets/icons/back.png';
+import eyeOpen from '../assets/icons/eye-open.png';
+import eyeOff from '../assets/icons/eye-off.png';
 
 export default {
+  eyeOpen,
+  eyeOff,
+  back,
   history,
   payment,
   bill,

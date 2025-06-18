@@ -5,14 +5,10 @@ import icons from '../../../constants/icons';
 import {mockData} from '../../../constants/data';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
-import {BottomTabParamList} from '../../navigation/type';
-import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {useGetUserInfo} from '../../redux/users/useGetUserInfo';
 
-type NavigationProp = BottomTabNavigationProp<BottomTabParamList, 'Home'>;
-
 const Home = () => {
-  const navigation = useNavigation<NavigationProp>();
+  const navigation = useNavigation();
   const {user} = useGetUserInfo();
   return (
     <SafeAreaView
@@ -63,7 +59,10 @@ const Home = () => {
             <TouchableOpacity
               key={index}
               className="bg-[#e8ecf0] h-[90px] w-[47%] px-4 rounded-2xl
-              flex flex-row gap-2 items-center justify-center">
+              flex flex-row gap-2 items-center justify-center"
+              onPress={() =>
+                item.screen ? navigation.navigate(item.screen) : {}
+              }>
               <Image
                 source={item.icon}
                 className="w-10 h-10 m-2"

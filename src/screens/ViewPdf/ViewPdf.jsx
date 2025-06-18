@@ -2,15 +2,17 @@ import {StyleSheet} from 'react-native';
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Pdf from 'react-native-pdf';
+import CustomHeader from '../../components/CustomHeader/CustomHeader';
 
-const Search = () => {
-  const pdf = require('./mockpdf2.pdf');
+const ViewPdf = () => {
+  const source = {uri: 'bundle-assets://pdf/mockpdf2.pdf'};
   return (
     <SafeAreaView
       edges={['top', 'right', 'left']}
-      className="px-4 flex-1 bg-white justify-center items-center border-black border-2">
+      className="flex-1 bg-white justify-center items-center">
+      <CustomHeader headerTitle="Xem PDF Test" />
       <Pdf
-        source={pdf}
+        source={source}
         style={styles.pdf}
         onError={error => {
           console.log('PDF load error:', error);
@@ -20,6 +22,8 @@ const Search = () => {
   );
 };
 
+export default ViewPdf;
+
 const styles = StyleSheet.create({
   pdf: {
     flex: 1,
@@ -27,5 +31,3 @@ const styles = StyleSheet.create({
     height: '100%',
   },
 });
-
-export default Search;

@@ -5,21 +5,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import icons from '../../../constants/icons';
 import images from '../../../constants/images';
 
-interface SettingItemsProps {
-  icon: any;
-  title: string;
-  onPress?: () => void;
-  textStyle?: string;
-  showArrow?: boolean;
-}
-
-const SettingItems = ({
-  icon,
-  title,
-  onPress,
-  textStyle,
-  showArrow = true,
-}: SettingItemsProps) => (
+const SettingItems = ({icon, title, onPress, textStyle, showArrow = true}) => (
   <TouchableOpacity
     onPress={onPress}
     className="flex flex-row items-center justify-between py-3">
@@ -33,16 +19,16 @@ const SettingItems = ({
   </TouchableOpacity>
 );
 
-const Profile = () => {
+const Menu = () => {
   const handleLogout = async () => {};
   return (
     <SafeAreaView className="h-full bg-white" edges={['top', 'right', 'left']}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerClassName="px-7 pb-32">
-        <View className="flex flex-row items-center justify-between mt-5">
-          <Text className="text-xl font-rubik-bold">Profile</Text>
-          <Image source={icons.bell} className="size-5" />
+        <View className="flex flex-row items-center justify-between">
+          <Text className="text-2xl font-rubik-bold">Menu</Text>
+          <Image source={icons.bell} className="w-8 h-8" />
         </View>
         <View className="flex flex-row justify-center mt-5">
           <View className="flex flex-col items-center relative mt-5 max-w-[200px]">
@@ -81,4 +67,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Menu;

@@ -7,42 +7,52 @@ export const mockData = [
   {
     icon: icons.booking,
     label: 'Đặt khám',
+    screen: 'Booking',
   },
   {
     icon: icons.history,
     label: 'Lịch sử đặt khám',
+    screen: null,
   },
   {
     icon: icons.person,
     label: 'Hồ sơ sức khỏe',
+    screen: null,
   },
   {
     icon: icons.history,
     label: 'Lịch sử tiêm chủng',
+    screen: null,
   },
   {
     icon: icons.payment,
     label: 'Thanh toán viện phí, đơn thuốc',
+    screen: null,
   },
   {
     icon: icons.shield,
     label: 'Cận lâm sàng khám bệnh ngoại trú',
+    screen: null,
   },
   {
     icon: icons.calendar,
     label: 'Đặt lịch uống thuốc',
+    screen: null,
   },
   {
     icon: icons.wallet,
     label: 'Hóa đơn GTGT',
+    screen: null,
   },
   {
     icon: icons.run,
     label: 'Theo dõi sức khỏe',
+    screen: null,
   },
   {
     icon: icons.support,
     label: 'Hỗ trợ',
+    screen: null,
   },
 ];
 
