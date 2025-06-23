@@ -13,7 +13,7 @@ import Booking from './src/screens/Booking/Booking';
 const Stack = createStackNavigator();
 
 const RootStack = () => {
-  const isAuth = true; // !!user
+  const isAuth = false; // !!user
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {isAuth ? (

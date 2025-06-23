@@ -12,6 +12,7 @@ import {TextInput} from 'react-native-gesture-handler';
 import icons from '../../../constants/icons';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {validateEmail} from '../../utils/validateEmail';
+import {loginApi} from '../../api/user';
 
 const Login = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -63,11 +64,24 @@ const Login = () => {
     return isValid;
   };
 
-  const handleSubmit = () => {
-    if (!handleValidate()) {
-      return;
+  const handleSubmit = async () => {
+    // if (!handleValidate()) {
+    //   return;
+    // }
+    const data = {
+      username: 'Admin',
+      password: 'MatKhauMoi',
+      idKho: 0,
+      idKhu: 0,
+      idVt: 0,
+    };
+    console.log('check dât:', data);
+    try {
+      const res = await loginApi(data);
+      console.log('check res: ', res);
+    } catch (error) {
+      console.log('Login error: ', error?.response?.data || error.message);
     }
-    console.log('email: ', email, 'password: ', password);
   };
 
   return (
