@@ -36,8 +36,8 @@ export const mockData = [
   },
   {
     icon: icons.calendar,
-    label: 'Đặt lịch uống thuốc',
-    screen: null,
+    label: 'Xem báo cáo',
+    screen: 'Report',
   },
   {
     icon: icons.wallet,

@@ -8,6 +8,7 @@ import {useCallback} from 'react';
 import Booking from '../../screens/Booking/Booking';
 import {createStackNavigator} from '@react-navigation/stack';
 import Notifications from '../../screens/Notifications/Notifications';
+import Report from '../../screens/Report/Report';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ const HomeStack = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Booking" component={Booking} />
+      <Stack.Screen name="Report" component={Report} />
     </Stack.Navigator>
   );
 };

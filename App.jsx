@@ -1,19 +1,21 @@
-import React from 'react';
 import './global.css';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import BottomTab from './src/navigation/BottomTab/BottomTab';
 import Login from './src/screens/Login/Login';
 import {store} from './src/redux/store';
-import {Provider} from 'react-redux';
+import {Provider, useSelector} from 'react-redux';
 import ViewPdf from './src/screens/ViewPdf/ViewPdf';
 import SignUp from './src/screens/SignUp/SignUp';
 import Booking from './src/screens/Booking/Booking';
+import {injectStore} from './src/utils/authorizeAxios';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Stack = createStackNavigator();
 
 const RootStack = () => {
-  const isAuth = false; // !!user
+  const user = useSelector(state => state.user.currentUser);
+  const isAuth = !!user;
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {isAuth ? (
@@ -31,14 +33,16 @@ const RootStack = () => {
     </Stack.Navigator>
   );
 };
-
 const App = () => {
+  injectStore(store);
   return (
-    <NavigationContainer>
-      <Provider store={store}>
-        <RootStack />
-      </Provider>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <SafeAreaView className="flex-1">
+          <RootStack />
+        </SafeAreaView>
+      </NavigationContainer>
+    </Provider>
   );
 };
 

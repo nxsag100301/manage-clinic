@@ -12,13 +12,15 @@ import {TextInput} from 'react-native-gesture-handler';
 import icons from '../../../constants/icons';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {validateEmail} from '../../utils/validateEmail';
-import {loginApi} from '../../api/user';
+import {userLoginAPI} from '../../redux/users/userSlice';
+import {useDispatch} from 'react-redux';
 
 const Login = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const dispatch = useDispatch();
 
   useFocusEffect(
     useCallback(() => {
@@ -53,10 +55,10 @@ const Login = () => {
       setFieldError('email', 'Email is required');
       isValid = false;
     }
-    if (email && validateEmail(email) === false) {
-      setFieldError('email', 'Email is not valid');
-      isValid = false;
-    }
+    // if (email && validateEmail(email) === false) {
+    //   setFieldError('email', 'Email is not valid');
+    //   isValid = false;
+    // }
     if (!password) {
       setFieldError('password', 'Password is required');
       isValid = false;
@@ -75,10 +77,8 @@ const Login = () => {
       idKhu: 0,
       idVt: 0,
     };
-    console.log('check dât:', data);
     try {
-      const res = await loginApi(data);
-      console.log('check res: ', res);
+      await dispatch(userLoginAPI(data));
     } catch (error) {
       console.log('Login error: ', error?.response?.data || error.message);
     }
