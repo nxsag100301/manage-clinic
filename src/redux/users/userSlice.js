@@ -28,7 +28,6 @@ export const userSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(userLoginAPI.fulfilled, (state, action) => {
-      console.log('vao');
       state.currentUser = jwtDecode(action.payload.access_token);
     });
   },

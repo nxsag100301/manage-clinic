@@ -36,7 +36,7 @@ export const mockData = [
   },
   {
     icon: icons.calendar,
-    label: 'Xem báo cáo',
+    label: 'Xem thống kê',
     screen: 'Report',
   },
   {

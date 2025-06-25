@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 const CustomHeader = ({headerTitle}) => {
   const navigation = useNavigation();
   return (
-    <View className="w-full px-4 flex flex-row items-center justify-between">
+    <View className="w-full px-4 py-2 flex flex-row items-center justify-between">
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Image source={icons.back} className="w-9 h-9" tintColor="#598DD1" />
       </TouchableOpacity>
